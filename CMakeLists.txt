@@ -16,6 +16,7 @@ message("Include Dir: ${OpenCV_INCLUDE_DIRS}")
 message("Link Dir: ${OpenCV_LIB_DIR}")
 # 添加子目录到项目构建中
 add_subdirectory(utils)
+add_subdirectory(test)
 # 添加cmake选项，默认为OFF
 option(WITH_LOG "Build with output logs and images in tmp" OFF)
 # 如果此选项为ON，启用预编译日志标记LOG
@@ -27,6 +28,6 @@ aux_source_directory(. SRC)
 # 使用指定的源文件在项目中添加以上述定义的工程名称命名的可执行文件名
 add_executable(${PROJECT_NAME} ${SRC})
 # 设置MY_LIBS变量，用来引用所有工程中要添加的新库
-set(MY_LIBS Utils)
+set(MY_LIBS Utils Test)
 # 指定链接目标及其依赖的外部库或链接标志
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS} ${MY_LIBS})
